@@ -1,0 +1,9 @@
+{
+  "all": true,
+  "include": [
+    "test/test.js",
+    "index.js",
+    "DataBase/db.js"
+  ],
+  "exclude": []
+}
