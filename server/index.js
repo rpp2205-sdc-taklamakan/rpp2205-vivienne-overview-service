@@ -9,6 +9,7 @@ const app = express();
 const Controller = require('./controller.js');
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
+app.use(express.static('public')); /* this line tells Express to use the public folder as our static folder from which we can serve static files*/
 
 // app.get('/products', (req, res) =>{
 //   getAllProducts(results => {
