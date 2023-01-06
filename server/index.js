@@ -5,11 +5,11 @@ var cluster = require('cluster');
 var numCPUs = require('os').cpus().length;
 
 const app = express();
+
 //const db = require('../database');
 const Controller = require('./controller.js');
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
-app.use(express.static('public')); /* this line tells Express to use the public folder as our static folder from which we can serve static files*/
 
 // app.get('/products', (req, res) =>{
 //   getAllProducts(results => {
@@ -22,7 +22,12 @@ app.use(express.static('public')); /* this line tells Express to use the public 
 // })
 app.get('/Products', Controller.getAllProducts);
 //app.get('/products/:product_id', getOneProduct);
-
+app.get('/loaderio*', function(req, res){
+  var options = {
+    root: path.join(__dirname)
+};
+  res.sendFile('loaderio-bc94dfdb8fa117760bf39fc381eef666.txt', options);
+});
 
 app.get('/products/:product_id', Controller.getOneProduct);
 
